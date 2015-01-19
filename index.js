@@ -1,2 +1,2 @@
 exports.Pool = require('./lib/pool');
-exports.Task = require('./lib/task');
+exports.Worker = require('./lib/worker');

@@ -1,9 +1,9 @@
-var Pool = require('../lib/pool');
+var crew = require('../');
 var os   = require('os');
 var assert = require('assert');
 
 var cpus = os.cpus().length;
-var pool = new Pool()
+var pool = new crew.Pool()
   , i = 50;
 
 // set up some test vars
@@ -13,7 +13,7 @@ var execution_test = true;
 
 console.log('\n\n\n')
 console.log('Starting test on Pool.js');
-console.log('- Delegation Test       - pool should not delegate more workers than cpus');
+console.log('- Delegation Test       - pool should not delegate more workers than cpus unless directed');
 console.log('- Communication Test    - workers should pass/recieve data to/from task queue\'s');
 console.log('- Worker Execution Test - workers should execute without errors');
 console.log('\n');
@@ -22,11 +22,11 @@ console.log('\n');
 
 while (i--) {
 	var send = i;
-	pool.queue({
-		path: './child',
+	pool.addWorker({
+		path: __dirname + '/child',
 		data: send,
-		message: function (msg, child, task) {
-			if (msg !== task._childSettings.data) {
+		message: function (msg, worker, child) {
+			if (msg !== worker._settings.data) {
 				communication_test = false;
 				console.log('Worker: ' + msg + ' failed to communcate');
 			}
@@ -61,7 +61,7 @@ while (i--) {
 				process.exit(0);
 			}
 		},
-		error: function (err, child, task) {
+		error: function (err, worker, child) {
 			execution_test = false;
 		}
 	});
