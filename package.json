@@ -1,0 +1,17 @@
+{
+	"name": "crew",
+	"version": "0.0.1",
+	"description": "Child process managment in thread pool pattern",
+	"author": "Nick Pisacane <pisacanen@gmail.com> (http://nickpisacane.com)",
+	"keywords": ["worker", "pool", "worker pool pattern", "child process"],
+	"homepage": "https://github.com/Nindaff/crew",
+	"licence": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Nindaff/crew"
+	},
+	"main": "index.js",
+	"scripts": {
+		"test": "node ./test/master_test.js"
+	}
+}
