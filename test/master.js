@@ -1,4 +1,4 @@
-/*!
+/**
  * Mocha Test
  */
 var crew = require('../')
@@ -8,12 +8,12 @@ var pool = new crew.Pool()
   , workerCount = 50
   , CPUS = require('os').cpus().length;
 console.log('CPUS: ', CPUS);
-/*!
+/**
  * Crew
  */
 describe('Crew', function () {
 
-	/*!
+	/**
 	 * Delegation Test
 	 */
 	it('should not delegate more workers than CPUS unless configured to', function (done) {
@@ -24,7 +24,7 @@ describe('Crew', function () {
 		});
 	});
 
-	/*!
+	/**
 	 * Delegation Test 2
 	 */
 	it('should have active workers unless draining', function (done) {
@@ -35,7 +35,7 @@ describe('Crew', function () {
 	});
 
 
-	/*!
+	/**
 	 * 50 Workers
 	 */
 	while (workerCount--) {
@@ -45,7 +45,7 @@ describe('Crew', function () {
 		});
 		pool.addWorker(worker);
 
-		/*!
+		/**
 		 * Message Test
 		 */
 		it('should pass data from worker to child', function (done) {
@@ -57,4 +57,3 @@ describe('Crew', function () {
 	}
 
 });
-
