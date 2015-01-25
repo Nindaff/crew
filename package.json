@@ -12,6 +12,6 @@
 	},
 	"main": "index.js",
 	"scripts": {
-		"test": "node ./test/master_test.js"
+		"test": "mocha ./test/master.js"
 	}
 }
