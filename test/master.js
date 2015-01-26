@@ -7,7 +7,7 @@ var crew = require('../')
 var pool = new crew.Pool()
   , workerCount = 50
   , CPUS = require('os').cpus().length;
-console.log('CPUS: ', CPUS);
+
 /**
  * Crew
  */
@@ -18,7 +18,6 @@ describe('Crew', function () {
 	 */
 	it('should not delegate more workers than CPUS unless configured to', function (done) {
 		pool.once('run', function () {
-			console.log('On run: ', pool.active());
 			assert(pool.active() <= CPUS);
 			done();
 		});
@@ -32,19 +31,20 @@ describe('Crew', function () {
 			assert(pool.active() >= 0);
 			done();
 		});
-	});
+	});	
 
 
 	/**
 	 * 50 Workers
 	 */
 	while (workerCount--) {
+
 		var worker = new crew.Worker({
 			path: __dirname + '/child',
 			data: workerCount
 		});
-		pool.addWorker(worker);
-
+		
+		if (workerCount === 25) test = worker;
 		/**
 		 * Message Test
 		 */
@@ -54,6 +54,11 @@ describe('Crew', function () {
 				done();
 			});
 		});
+
+		pool.addWorker(worker);
 	}
 
+
+
 });
+
