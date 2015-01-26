@@ -13,6 +13,7 @@ Manage workers on a queue.
 	* message Function (message, worker, child) "message" Event Handler, invoked when worker process sends data to the main process
 	* args Array<String> Passed straight to node's ChildProcess <a href="http://nodejs.org/api/child_process.html#child_process_child_process_fork_modulepath_args_options">node docs</a>
 	* options Object Passed to node's ChildProcess <a href="http://nodejs.org/api/child_process.html#child_process_child_process_fork_modulepath_args_options">node docs</a>
+
 ## Pool
 ```js
 	var pool = new crew.Pool();
@@ -23,6 +24,7 @@ Manage workers on a queue.
 	Block workers from being started until the pool is empty
 * <h3>Pool#getCache()</h3>
 	Returns cache for all completed workers.
+
 ## Worker
 * <h3>Worker#setPool(pool)</h3>
 	Attach the worker to a Pool instance. Pool#addWorker will do the same thing.
