@@ -2,7 +2,8 @@
 Manage workers on a queue.
 
 ### Installation
-	```sh
+
+	```bash
 		$ npm install node-crew
 	```
 * <h3>crew.Pool([options])</h3>
