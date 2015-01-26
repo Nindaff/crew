@@ -3,9 +3,9 @@ Manage workers on a queue.
 
 ### Installation
 
-	```bash
-		$ npm install node-crew
-	```
+```bash
+	$ npm install node-crew
+```
 * <h3>crew.Pool([options])</h3>
 	* maxProcs Number Max concurrent workers
 	* dieOnError Boolean (true) Exit main process when a worker has an error
