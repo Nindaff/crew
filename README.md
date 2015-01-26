@@ -1,6 +1,6 @@
 # Crew 
 Manage workers on a queue.
-### crew.Pool([options])
+* <h3>crew.Pool([options])</h3>
 	* maxProcs Number Max concurrent workers
 	* dieOnError Boolean (true) Exit main process when a worker has an error
 	* dieOnEmpty Boolean (true) Exit main process when there on no workers in the queue or active
